@@ -1,0 +1,16 @@
+{
+  "name": "jsplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "howler": "^2.2.3",
+    "last.fm.api": "^0.1.3"
+  }
+}

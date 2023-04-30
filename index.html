@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="player">
+      <div id="artwork">
+        <img src="/images/cover1.png">
+      </div>
+      <div id="metadata">
+        <h2 id="track-name">All Star</h2>
+        <h3 id="artist-name">Juice WRLD</h3>
+        <h4 id="album-name">AI Music</h4>
+      </div>
+      <div id="controls">
+        <button id="play-pause-button">Play</button>
+        <button id="skip-button">Skip</button>
+        <input type="range" id="volume-slider" min="0" max="100" value="100">
+      </div>
+    </div>
+    <div id="playlist">
+      <h2>Playlist</h2>
+      <ul id="playlist-tracks">
+        <li>Track 1</li>
+        <li>Track 2</li>
+        <li>Track 3</li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
