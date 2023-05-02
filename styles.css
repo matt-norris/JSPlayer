@@ -1,115 +1,123 @@
 /* Set a gradient background */
 body {
-    background: linear-gradient(to bottom right, #91A1D0, #F9E0A5);
+  background: linear-gradient(to bottom right, #1A2A6C, #B21F1F, #FDBB2D);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Add some padding and a box shadow to the player interface */
+#player {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+/* Make the album artwork circular */
+#artwork img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #FDBB2D;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Add a hover effect to the album artwork */
+#artwork img:hover {
+  transform: scale(1.1);
+}
+
+/* Style the track metadata */
+#metadata {
+  margin: 0 20px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+#metadata h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1A2A6C;
+}
+
+#metadata h3, #metadata h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #B21F1F;
+}
+
+/* Style the player controls */
+#controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#controls button {
+  margin-right: 10px;
+  background-color: #c4c4c4;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#controls button:hover {
+  background-color: #B21F1F;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+#volume-slider {
+  width: 100px;
+}
+
+/* Style the playlist interface */
+#playlist {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+#playlist h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1A2A6C;
+}
+
+#playlist-tracks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#playlist-tracks li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15
+  );
+  background-color: #c4c4c4;
+  color: black;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
   }
   
-  /* Add some padding and a box shadow to the player interface */
-  #player {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+  #playlist-tracks li:hover {
+  background-color: #B21F1F;
+  color: #fff;
+  transform: scale(1.00);
   }
-  
-  /* Make the album artwork circular */
-  #artwork img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Add a hover effect to the album artwork */
-  #artwork img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Style the track metadata */
-  #metadata {
-    margin: 0 20px;
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  #metadata h2 {
-    margin: 0 0 5px 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  #metadata h3, #metadata h4 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: normal;
-    color: #555;
-  }
-  
-  /* Style the player controls */
-  #controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  #controls button {
-    margin-right: 10px;
-    background-color: #F9E0A5;
-    color: #555;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  #controls button:hover {
-    background-color: #91A1D0;
-    color: #fff;
-    transform: scale(1.1);
-  }
-  
-  #volume-slider {
-    width: 100px;
-  }
-  
-  /* Style the playlist interface */
-  #playlist {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-  }
-  
-  #playlist h2 {
-    margin: 0 0 10px 0;
-    font-size: 24px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  #playlist-tracks {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #playlist-tracks li {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background-color: #F9E0A5;
-    color: #555;
-    font-size: 16px;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  

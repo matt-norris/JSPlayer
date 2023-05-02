@@ -2,37 +2,51 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Music Player</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5-1pS4JjSm7ph5FNf2D9VjE+6lut6Rpc2mUg6y9h" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
-    <div id="player">
-      <div id="artwork">
-        <img src="/images/cover1.png">
+  <body id="background">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex" id="player">
+            <div id="artwork" class="me-3">
+              <img src="/images/cover1.png" class="img-thumbnail">
+            </div>
+            <div id="metadata" class="align-self-center">
+              <h2 id="track-name" class="mb-1">All Star</h2>
+              <h3 id="artist-name" class="mb-1 text-muted">Juice WRLD</h3>
+              <h4 id="album-name" class="text-muted">AI Music</h4>
+            </div>
+          </div>
+          <div id="controls" class="mt-3 d-flex">
+            <button id="play-pause-button" class="btn btn-primary me-2">Play</button>
+            <button id="skip-button" class="btn btn-secondary me-2">Skip</button>
+            <input type="range" id="volume-slider" min="0" max="100" value="100" class="form-range">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="playlist">
+            <h2>Playlist</h2>
+            <ul id="playlist-tracks" class="list-group">
+              <li class="list-group-item">All Star</li>
+              <li class="list-group-item">Check Yes Juliet</li>
+              <li class="list-group-item">I'm Yours</li>
+              <li class="list-group-item">Track 3</li>
+              <li class="list-group-item">Track 4</li>
+              <li class="list-group-item">Track 5</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div id="metadata">
-        <h2 id="track-name">All Star</h2>
-        <h3 id="artist-name">Juice WRLD</h3>
-        <h4 id="album-name">AI Music</h4>
-      </div>
-      <div id="controls">
-        <button id="play-pause-button">Play</button>
-        <button id="skip-button">Skip</button>
-        <input type="range" id="volume-slider" min="0" max="100" value="100">
-      </div>
-    </div>
-    <div id="playlist">
-      <h2>Playlist</h2>
-      <ul id="playlist-tracks">
-        <li>All Star</li>
-        <li>Check Yes Juliet</li>
-        <li>I'm Yours</li>
-        <li>Track 3</li>
-        <li>Track 3</li>
-        <li>Track 3</li>
-      </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+    <!-- Add Bootstrap JS and its dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.3/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX5" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-8WqyJLuWKxgoBFT5J5Eroyzjaxvyw/5t8aA/mYz6GQXK55gXb8C2zD2IBoOuC7T+" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-  </body>
-</html>
+    </body>
+    </html>

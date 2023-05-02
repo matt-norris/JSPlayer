@@ -1,7 +1,7 @@
 const trackUrls = [
   'audio/all.m4a',
-  'audio/pokemon.mp3',
-
+  'audio/CheckYes.m4a',
+  'audio/ImYours.m4a'
 ];
 
 const playlistItems = document.querySelectorAll('#playlist-tracks li');
@@ -59,3 +59,40 @@ skipButton.addEventListener('click', () => {
 volumeSlider.addEventListener('input', () => {
   player.volume(volumeSlider.value / 100);
 });
+
+// Generate a random color
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+// Generate a random pastel color
+function getRandomPastelColor() {
+  const red = Math.floor(Math.random() * 128) + 127;
+  const green = Math.floor(Math.random() * 128) + 127;
+  const blue = Math.floor(Math.random() * 128) + 127;
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+// Change the gradient background to a random color
+// Change the gradient background to a random pastel color
+function changeBackground() {
+  const body = document.getElementById('background');
+  const color1 = getRandomPastelColor();
+  const color2 = getRandomPastelColor();
+  const color3 = getRandomPastelColor();
+  body.style.background = `linear-gradient(to bottom right, ${color1}, ${color2},${color3} )`;
+}
+
+// Add event listeners to playlist items
+const playlistTracksd = document.querySelectorAll('#playlist-tracks li');
+
+playlistTracksd.forEach(track => {
+  track.addEventListener('click', () => {
+    changeBackground();
+  });
+});
+
