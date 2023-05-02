@@ -4,8 +4,9 @@ const trackUrls = [
   'audio/ImYours.m4a'
 ];
 
-const playlistItems = document.querySelectorAll('#playlist-tracks li');
-
+const playlistItems = document.querySelectorAll('.list-group-item');
+const trackName = document.querySelector('.player-info h2');
+const artistName = document.querySelector('.player-info h3');
 let player = {};
 
 function initPlayer(src) {
@@ -29,10 +30,12 @@ playlistItems.forEach((item, index) => {
     player.play(); // Play the new track
     document.getElementById('play-pause')// Update the play/pause button text
     trackName.innerHTML = item.innerHTML; // Update the track name in the metadata
+    artistName.innerHTML = item.dataset.artist;
   });
 });
 
 const playPauseBtn = document.getElementById('play-pause');
+
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 const shuffleBtn = document.getElementById('shuffle');
