@@ -7,6 +7,7 @@ const trackUrls = [
 const playlistItems = document.querySelectorAll('.list-group-item');
 const trackName = document.querySelector('.player-info h2');
 const artistName = document.querySelector('.player-info h3');
+const albumCover = document.querySelector('.album-cover img');
 let player = {};
 
 function initPlayer(src) {
@@ -24,6 +25,12 @@ function initPlayer(src) {
 
 initPlayer('audio/all.m4a');
 
+const colorThief = new ColorThief();
+
+const color = colorThief.getColor(albumCover);
+const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+
+document.body.style.backgroundColor = rgbColor;
 playlistItems.forEach((item, index) => {
   item.addEventListener('click', () => {
     initPlayer(trackUrls[index]); // Initialize the player with the new track URL
@@ -31,6 +38,7 @@ playlistItems.forEach((item, index) => {
     document.getElementById('play-pause')// Update the play/pause button text
     trackName.innerHTML = item.innerHTML; // Update the track name in the metadata
     artistName.innerHTML = item.dataset.artist;
+    albumCover.src = item.dataset.cover;
   });
 });
 
