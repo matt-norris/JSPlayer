@@ -108,6 +108,14 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+@keyframes gradient {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
 
 
 .carousel-control.prev {

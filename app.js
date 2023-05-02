@@ -10,14 +10,23 @@ const artistName = document.querySelector('.player-info h3');
 const albumCover = document.querySelector('.album-cover img');
 let player = {};
 
-function updateBackgroundColor() {
-  const colorThief = new ColorThief();
-  albumCover.addEventListener('load', () => {
-    const color = colorThief.getColor(albumCover);
-    const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    document.body.style.backgroundColor = rgbColor;
-  });
-}
+
+  function updateBackgroundColor() {
+      const colorThief = new ColorThief();
+      albumCover.addEventListener('load', () => {
+      const color = colorThief.getColor(albumCover);
+      const secondaryColor = colorThief.getPalette(albumCover, 2)[1];
+    
+      // Use the colors for styling
+      const mainColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      const secondaryRgbColor = `rgb(${secondaryColor[0]}, ${secondaryColor[1]}, ${secondaryColor[2]})`;
+    
+      // Set the background color
+      document.body.style.background = `linear-gradient(90deg, ${mainColor}, ${secondaryRgbColor})`;
+      document.body.style.backgroundSize = "200% auto";
+      document.body.style.animation = "gradient linear infinite";
+    });
+  }
 
 function initPlayer(src) {
   if (player && typeof player.unload === 'function') {
