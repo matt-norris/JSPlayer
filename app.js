@@ -10,6 +10,27 @@ const artistName = document.querySelector('.player-info h3');
 const albumCover = document.querySelector('.album-cover img');
 let player = {};
 
+const playlistArray = Array.from(playlistItems);
+
+function updateBackgroundColor() {
+  const colorThief = new ColorThief();
+  albumCover.addEventListener('load', () => {
+    const color = colorThief.getColor(albumCover);
+    const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    document.body.style.backgroundColor = rgbColor;
+  });
+}
+
+function updateMetadata(index) {
+  const item = playlistArray[index];
+ 
+  trackName.innerHTML = item.innerHTML; // Update the track name in the metadata
+  artistName.innerHTML = item.dataset.artist;
+  albumCover.src = item.dataset.cover;
+  updateBackgroundColor(); 
+}
+
+
 function initPlayer(src) {
   if (player && typeof player.unload === 'function') {
     player.unload(); // Unload the current track from memory
@@ -59,30 +80,28 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
-let currentTrack = 0;
+
 
 nextBtn.addEventListener('click', () => {
   currentTrack++;
   if (currentTrack >= trackUrls.length) currentTrack = 0;
   initPlayer(trackUrls[currentTrack]);
   player.play();
+  updateMetadata(currentTrack);
 });
+
 
 prevBtn.addEventListener('click', () => {
   currentTrack--;
   if (currentTrack < 0) currentTrack = trackUrls.length - 1;
   initPlayer(trackUrls[currentTrack]);
   player.play();
+  updateMetadata(currentTrack);
 });
 
-shuffleBtn.addEventListener('click', () => {
-  currentTrack = Math.floor(Math.random() * trackUrls.length);
-  initPlayer(trackUrls[currentTrack]);
-  player.play();
-});
+let currentTrack = 0;
 
 volumeSlider.addEventListener('input', () => {
   player.volume(volumeSlider.value / 100);
 });
 
-feather.replace();
