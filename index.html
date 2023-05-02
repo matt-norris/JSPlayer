@@ -3,51 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Player</title>
+  <title>JSPlayer by Matt Norris</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
 </head>
 <body class="bg-gray-100">
+  <nav class="bg-white shadow-md py-4 px-6">
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold text-gray-800">
+        JSPlayer
+      </div>
+      <ul class="flex items-center space-x-4">
+        <li><a href="#" class="text-gray-700 hover:text-gray-900">Home</a></li>
+        <li><a href="about.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
-      <div class="player">
-        <div class="player-info mb-6">
-          <h2 class="text-xl font-semibold mb-1">All Star</h2>
-          <h3 class="text-md text-gray-700 mb-1">Smash Mouth X Juice WRLD</h3>
-          <h4 class="text-sm text-gray-500">AI Music</h4>
+      <div class="carousel-container relative">
+        <div class="carousel flex">
+          <!-- Carousel item 1 -->
+          <div class="carousel-item active">
+            <div class="player">
+              <!-- Player info, album cover, controls, and volume bar for the first song -->
+              <div class="player-info mb-2">
+                <h2 class="text-xl font-semibold mb-1">All Star</h2>
+                <h3 class="text-md text-gray-700 mb-1">Smash Mouth X Juice WRLD</h3>
+                <h4 class="text-sm text-gray-500">AI Music</h4>
+              </div>
+              <div class="album-cover mb-6">
+                <img src="/images/cover1.png" alt="Album cover">
+              </div>
+              <!-- You can keep the controls and volume bar the same for all items -->
+            </div>
+          </div>
+          <!-- Carousel item 2 -->
+          <div class="carousel-item">
+            <div class="player">
+              <!-- Player info, album cover, controls, and volume bar for the second song -->
+              <div class="player-info mb-2">
+                <h2 class="text-xl font-semibold mb-1">Check Yes</h2>
+                <h3 class="text-md text-gray-700 mb-1">We The Kings X Juice WRLD</h3>
+                <h4 class="text-sm text-gray-500">AI Music</h4>
+              </div>
+              <div class="album-cover mb-6">
+                <img src="/images/cover2.png" alt="Album cover">
+              </div>
+              <!-- You can keep the controls and volume bar the same for all items -->
+            </div>
+          </div>
+          <!-- Carousel item 3 -->
+          <div class="carousel-item">
+            <div class="player">
+              <!-- Player info, album cover, controls, and volume bar for the third song -->
+              <div class="player-info mb-2">
+                <h2 class="text-xl font-semibold mb-1">I'm Yours</h2>
+                <h3 class="text-md text-gray-700 mb-1">Jason Mraz X Juice WRLD</h3>
+                <h4 class="text-sm text-gray-500">AI Music</h4>
+              </div>
+              <div class="album-cover mb-6">
+                <img src="/images/cover3.png" alt="Album cover">
+              </div>
+              <!-- You can keep the controls and volume bar the same for all items -->
+            </div>
+          </div>
+           <!-- Carousel item 4 -->
+          <div class="carousel-item">
+            <div class="player">
+              <!-- Player info, album cover, controls, and volume bar for the third song -->
+              <div class="player-info mb-2">
+                <h2 class="text-xl font-semibold mb-1">All Star</h2>
+                <h3 class="text-md text-gray-700 mb-1">Smash Mouth X Juice WRLD</h3>
+                <h4 class="text-sm text-gray-500">AI Music</h4>
+              </div>
+              <div class="album-cover mb-6">
+                <img src="/images/cover1.png" alt="Album cover">
+              </div>
+              <!-- You can keep the controls and volume bar the same for all items -->
+            </div>
+          </div>
         </div>
-        <div class="album-cover mb-6">
-          <img src="/images/cover1.png" alt="Album cover">
-        </div>
-        <div class="controls mb-6">
-          <button id="prev" class="control-button">
-            <i class="fa-regular fa-backward"></i>
-          </button>
-          <button id="play-pause" class="control-button">
-            <i class="fa-regular fa-music"></i>
-          </button>
-          <button id="next" class="control-button">
-            <i class="fa-regular fa-forward"></i>
-          </button>
-        </div>
-        <div class="volume-bar mb-6">
-          <input id="volume-slider" type="range" min="0" max="100" value="100" class="w-full">
-        </div>
-        <div class="hidden">
-          <div class="list-group-item" data-artist="Smash Mouth X Juice WRLD" data-cover="/images/cover1.png">All Star</div>
-          <div class="list-group-item" data-artist="We The Kings X Juice WRLD" data-cover="/images/cover2.png">Check Yes</div>
-          <div class="list-group-item" data-artist="Jason Mraz X Juice WRLD" data-cover="/images/cover3.png">I'm Yours</div>
-        </div>
+       
+      </div>
+      <div class="controls mb-2">
+     <button class="carousel-control prev absolute left-0 top-1/2 -translate-y-1/2">
+  <i class="fas fa-chevron-left"></i>
+</button>
+<button class="carousel-control next absolute right-0 top-1/2 -translate-y-1/2">
+  <i class="fas fa-chevron-right"></i>
+</button>
+
+        <button id="play-pause" class="control-button">
+          <i class="fa-regular fa-music"></i>
+        </button>
+    
+      </div>
+      <div class="volume-bar mb-2">
+        <input id="volume-slider" type="range" min="0" max="100" value="100" class="w-full">
       </div>
     </div>
-    
   </div>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
   <script src="https://kit.fontawesome.com/41e82a231f.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
+
+  

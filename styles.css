@@ -68,3 +68,56 @@
 .playlist {
   margin-top: 20px;
 }
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.carousel-item {
+  flex: 0 0 calc(100% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+.carousel-control {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-control:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-item:not(.active) {
+  display: none;
+}
