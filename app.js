@@ -115,3 +115,4 @@ player.play();
 playPauseBtn.innerHTML = '<i class="fas fa-pause text-gray-700 cursor-pointer"></i>';
 }
 
+
