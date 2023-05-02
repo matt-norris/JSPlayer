@@ -14,7 +14,6 @@ function initPlayer(src) {
   }
   player = new Howl({
     src: [src],
-    
     html5: true,
     onloaderror: function () {
       console.log('Error: Audio file could not be loaded.');
@@ -28,71 +27,51 @@ playlistItems.forEach((item, index) => {
   item.addEventListener('click', () => {
     initPlayer(trackUrls[index]); // Initialize the player with the new track URL
     player.play(); // Play the new track
-    playPauseButton.innerHTML = 'Pause'; // Update the play/pause button text
+    document.getElementById('play-pause')// Update the play/pause button text
     trackName.innerHTML = item.innerHTML; // Update the track name in the metadata
   });
 });
 
-const playPauseButton = document.getElementById('play-pause-button');
-const skipButton = document.getElementById('skip-button');
+const playPauseBtn = document.getElementById('play-pause');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+const shuffleBtn = document.getElementById('shuffle');
 const volumeSlider = document.getElementById('volume-slider');
-const artworkImg = document.querySelector('#artwork img');
-const trackName = document.getElementById('track-name');
-const artistName = document.getElementById('artist-name');
-const albumName = document.getElementById('album-name');
-const playlistTracks = document.getElementById('playlist-tracks');
 
-playPauseButton.addEventListener('click', () => {
+playPauseBtn.addEventListener('click', () => {
   if (player.playing()) {
     player.pause();
-    playPauseButton.innerHTML = 'Play';
+    playPauseBtn.innerHTML = '<i class="fas fa-play text-gray-700 cursor-pointer"></i>';
   } else {
     player.play();
-    playPauseButton.innerHTML = 'Pause';
+    playPauseBtn.innerHTML = '<i class="fas fa-pause text-gray-700 cursor-pointer"></i>';
   }
 });
 
-skipButton.addEventListener('click', () => {
-  player.skip();
+let currentTrack = 0;
+
+nextBtn.addEventListener('click', () => {
+  currentTrack++;
+  if (currentTrack >= trackUrls.length) currentTrack = 0;
+  initPlayer(trackUrls[currentTrack]);
+  player.play();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentTrack--;
+  if (currentTrack < 0) currentTrack = trackUrls.length - 1;
+  initPlayer(trackUrls[currentTrack]);
+  player.play();
+});
+
+shuffleBtn.addEventListener('click', () => {
+  currentTrack = Math.floor(Math.random() * trackUrls.length);
+  initPlayer(trackUrls[currentTrack]);
+  player.play();
 });
 
 volumeSlider.addEventListener('input', () => {
   player.volume(volumeSlider.value / 100);
 });
 
-// Generate a random color
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-// Generate a random pastel color
-function getRandomPastelColor() {
-  const red = Math.floor(Math.random() * 128) + 127;
-  const green = Math.floor(Math.random() * 128) + 127;
-  const blue = Math.floor(Math.random() * 128) + 127;
-  return `rgb(${red}, ${green}, ${blue})`;
-}
-
-// Change the gradient background to a random color
-// Change the gradient background to a random pastel color
-function changeBackground() {
-  const body = document.getElementById('background');
-  const color1 = getRandomPastelColor();
-  const color2 = getRandomPastelColor();
-  const color3 = getRandomPastelColor();
-  body.style.background = `linear-gradient(to bottom right, ${color1}, ${color2},${color3} )`;
-}
-
-// Add event listeners to playlist items
-const playlistTracksd = document.querySelectorAll('#playlist-tracks li');
-
-playlistTracksd.forEach(track => {
-  track.addEventListener('click', () => {
-    changeBackground();
-  });
-});
-
+feather.replace();
