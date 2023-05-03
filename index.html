@@ -35,7 +35,7 @@
                 <h4 class="text-sm text-gray-500">AI Music</h4>
               </div>
               <div class="album-cover mb-6">
-                <img src="/images/cover1.png" alt="Album cover">
+                <img src="/images/cover2.png" alt="Album cover">
               </div>
               <!-- You can keep the controls and volume bar the same for all items -->
             </div>
@@ -50,7 +50,7 @@
                 <h4 class="text-sm text-gray-500">AI Music</h4>
               </div>
               <div class="album-cover mb-6">
-                <img src="/images/cover2.png" alt="Album cover">
+                <img src="/images/cover1.png" alt="Album cover">
               </div>
               <!-- You can keep the controls and volume bar the same for all items -->
             </div>
@@ -71,20 +71,22 @@
             </div>
           </div>
            <!-- Carousel item 4 -->
-          <div class="carousel-item" id="carousel-item-4">
-            <div class="player">
-              <!-- Player info, album cover, controls, and volume bar for the third song -->
-              <div class="player-info mb-2">
-                <h2 class="text-xl font-semibold mb-1">All Star</h2>
-                <h3 class="text-md text-gray-700 mb-1">Smash Mouth X Juice WRLD</h3>
-                <h4 class="text-sm text-gray-500">AI Music</h4>
+       
+               <!-- Carousel item 5 -->
+               <div class="carousel-item" id="carousel-item-4">
+                <div class="player">
+                  <!-- Player info, album cover, controls, and volume bar for the third song -->
+                  <div class="player-info mb-2">
+                    <h2 class="text-xl font-semibold mb-1">Last Night</h2>
+                    <h3 class="text-md text-gray-700 mb-1">Morgan Wallen X Juice WRLD</h3>
+                    <h4 class="text-sm text-gray-500">AI Music</h4>
+                  </div>
+                  <div class="album-cover mb-6">
+                    <img src="/images/cover4.png" alt="Album cover">
+                  </div>
+                  <!-- You can keep the controls and volume bar the same for all items -->
+                </div>
               </div>
-              <div class="album-cover mb-6">
-                <img src="/images/cover1.png" alt="Album cover">
-              </div>
-              <!-- You can keep the controls and volume bar the same for all items -->
-            </div>
-          </div>
         </div>
        
       </div>
@@ -104,11 +106,27 @@
   <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 -mt-5">
     <div class="glassy shadow-xl rounded-lg p-8 w-full max-w-md" id="audio-visual">
       <div class="player-info mb-2">
-        <h2 class="text-xl font-semibold mb-1">Lyrics</h2>
-        </div>
+        <h2 class="text-xl font-semibold mb-1">Visualizer</h2>
+        <canvas id="audio-visualizer" width="400" height="200"></canvas>
+      </div>
     </div>
     </div>
+    
 
+
+    <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 -mt-5" >
+      <div class="glassy shadow-xl rounded-lg p-8 w-full max-w-md" id="song-lyrics-box">
+        <div id="song-lyrics" class="lyrics-container"></div>
+        <div class="player-info mb-2">
+          <h2 class="text-xl font-semibold">Lyrics</h2>
+        </div>
+      
+       
+      </div>
+    </div>
+      </div>
+      </div>
+    
   <button class="carousel-control prev absolute left-0 top-1/2 -translate-y-1/2">
     <i class="fas fa-chevron-left"></i>
   </button>
@@ -119,6 +137,7 @@
   <script src="https://kit.fontawesome.com/41e82a231f.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.min.js"></script>
   <script src="app.js"></script>
+
   <script>
     // The dragElement function sets up the drag-and-drop functionality for an element
     function dragElement(element) {
@@ -158,9 +177,14 @@
     const playerCard = document.getElementById("player-card");
     playerCard.style.position = "absolute"; // Set position to absolute for proper dragging
     dragElement(playerCard);
+
     const audioV = document.getElementById("audio-visual");
     audioV.style.position = "absolute"; // Set position to absolute for proper dragging
     dragElement(audioV);
+    
+    const lyricsV = document.getElementById("song-lyrics-box");
+    lyricsV.style.position = "absolute"; // Set position to absolute for proper dragging
+    dragElement(lyricsV);
   </script>
   
   
